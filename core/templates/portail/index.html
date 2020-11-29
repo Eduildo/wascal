@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+<head>
+    <title>Wascal &mdash; UCAD FASEG MASTERS </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> {% load static %}
+    <link href=" {% static 'https://fonts.googleapis.com/css?family=Muli:300,400,700,900' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="icon" href="{% static '/static/assets/icon.ico' %}" type="image/x-icon">
+
+
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+
+
+
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+    <link rel="stylesheet" href=" {% static 'css/aos.css' %}">
+
+
+
+
+    <link href="{% static 'css/jquery.mb.YTPlayer.min.css' %}" media="all" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+    <style>
+        .social-wrap a {
+            background: #009edb;
+        }
+        
+        .section-title-underline span {
+            border-bottom: 4px solid #009edb;
+        }
+        
+        .sticky-wrapper.is-sticky .site-navbar .site-menu>li.active>a {
+            color: #009edb;
+        }
+        
+        .sticky-wrapper.is-sticky .site-navbar .site-menu>li>a:hover {
+            color: #009edb;
+        }
+        
+        .site-navbar .site-navigation .site-menu>li>a:hover {
+            color: #009edb;
+        }
+        
+        .site-navbar .site-navigation .site-menu .active>a {
+            color: #009edb;
+            display: inline-block;
+            padding: 5px 20px;
+        }
+        
+        .site-navbar .site-navigation .site-menu .has-children:hover>a,
+        .site-navbar .site-navigation .site-menu .has-children:focus>a,
+        .site-navbar .site-navigation .site-menu .has-children:active>a {
+            color: #009edb;
+        }
+        
+        .site-navbar .site-navigation .site-menu .has-children .dropdown {
+            border-top: 2px solid #009edb;
+        }
+        
+        .section-title-underline.style-2 span {
+            border-color: #009edb;
+        }
+        
+        .btn-info {
+            background-color: #009edb;
+            border-color: #009edb;
+        }
+        
+        .btn .btn-info .px-4 .rounded-0 span {
+            background-color: #009edb;
+            border-color: #009edb;
+        }
+        
+        .bg-info {
+            background-color: #009edb;
+            border-color: #009edb;
+        }
+        
+        .intro-section {
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .intro-section:before {
+            position: absolute;
+            height: 0%;
+            width: 100%;
+            border-bottom-right-radius: 0px;
+            /* background-size: cover; */
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    <div class="site-wrap">
+
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+
+        <div class="py-2 bg-dark">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-9 d-none d-lg-block">
+                        <a href="#" class="small mr-3 text-white"><span class="icon-question-circle-o mr-2"></span> Avez-vous une question?</a>
+                        <a href="#" class="small mr-3 text-white"><span class="icon-phone2 mr-2"></span>(+221) 33 859 22 28</a>
+                        <a href="#" class="small mr-3 text-white"><span class="icon-envelope-o mr-2"></span>wascal.phd.@ucad.edu.sn</a>
+                    </div>
+                    <div class="col-lg-3 text-right">
+                        <a href="{% url 'core:login' %}" class="small mr-3 text-white"><span class="icon-unlock-alt"></span> Log In</a>
+                        <a href="{% url 'core:new_user' %} " class="small btn btn-outline-dark px-4 py-2 rounded-0 text-white"><span class="icon-users"></span> S'inscrire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+
+            <div class="container">
+                <div class="d-flex align-items-center">
+                    <div class="site-logo">
+                        <a href="#" class="d-block">
+
+                            <img src="{% static 'images/logo1.png' %}" alt="Image" width="220" height="150" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="mr-auto">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+                            <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                                <li class="active">
+                                    <a href="{% url 'core:index' %}" class="nav-link text-left">Accueil</a>
+                                </li>
+                                <li class="has-children">
+                                    <a href="{% url 'core:about' %}" class="nav-link text-left">A propos</a>
+                                    <ul class="dropdown">
+                                        <li><a href="teachers.html">Nos enseignants</a></li>
+                                        <li><a href="about.html">Nos programmes</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="{% url 'core:admission' %}" class="nav-link text-left">Admissions</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'core:formations' %}" class="nav-link text-left">Formation</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link text-left">Resources</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'core:contact' %}" class="nav-link text-left">Contact</a>
+                                </li>
+                            </ul>
+                            </ul>
+                        </nav>
+
+                    </div>
+                    <div class="ml-auto">
+                        <div class="social-wrap">
+                            <a href="#"><span class="icon-facebook"></span></a>
+                            <a href="#"><span class="icon-twitter"></span></a>
+                            <a href="#"><span class="icon-linkedin"></span></a>
+
+                            <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
+                class="icon-menu h3"></span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </header>
+
+
+        <div class="hero-slide owl-carousel site-blocks-cover">
+            <div class="intro-section" style="background-image: url('../../static/images/projet_2.jpeg');">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-10 mx-auto text-left" data-aos="fade-up">
+                            <h3>École doctorale WASCAL</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="intro-section" style="background-image: url('../../static/images/wascal.jpg');">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12 mx-auto text-left" data-aos="fade-up">
+                            <!-- <h3>Nous sommes</h3> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div></div>
+
+        <div class="site-section">
+            <div class="container">
+                <div class="row mb-5 justify-content-center text-center">
+                    <div class="col-lg-4 mb-5">
+                        <h2 class="section-title-underline mb-5">
+                            <span>NOS FILIERES</span>
+                        </h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+
+                        <div class="feature-1 border">
+                            <div class="icon-wrapper bg-info">
+                                <span class="flaticon-mortarboard text-white"></span>
+                            </div>
+                            <div class="feature-1-content">
+                                <h2>MDP</h2>
+                                <p>Le Global Master’s in Development Practices (MDP) est une formation de niveau Master II soutenue par la Fondation MacArthur & Earth Institute de l’Université de Columbia (USA)...</p>
+                                <p><a href="#" class="btn btn-info px-4 rounded-0">Plus d'info</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                        <div class="feature-1 border">
+                            <div class="icon-wrapper bg-info ">
+                                <span class="flaticon-mortarboard text-white"></span>
+                            </div>
+                            <div class="feature-1-content">
+                                <h2>PEAEP</h2>
+                                <p>En matière de projets de développement, toute décision économique à de fortes chances de modifier l'allocation des ressources. Il est ainsi crucial d’analyser...
+                                </p>
+                                <p><a href="#" class="btn btn-info px-4 rounded-0">Plus d'info</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                        <div class="feature-1 border">
+                            <div class="icon-wrapper bg-info">
+                                <span class="flaticon-mortarboard text-white"></span>
+                            </div>
+                            <div class="feature-1-content">
+                                <h2>MMIP</h2>
+                                <p>La disponibilité des personnels qualifiés pour assurer une gestion efficace des infrastructures publiques est sans conteste le facteur de blocage le plus important au...</p>
+                                <p><a href="#" class="btn btn-info px-4 rounded-0">Plus d'info</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="site-section">
+            <div class="container">
+
+
+                <div class="row mb-5 justify-content-center text-center">
+                    <div class="col-lg-6 mb-5">
+                        <h2 class="section-title-underline mb-3">
+                            <span>WASCAL In The News</span>
+                        </h2>
+                        <p>Combattre le changement climatique. Améliorer les moyens d'existence</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="owl-slide-3 owl-carousel">
+                            <div class="course-1-item">
+                                <figure class="thumnail">
+                                    <a href="course-single.html"><img src="{% static 'images/projet.jpg' %}" alt="Image" class="img-fluid"></a>
+
+                                    <!-- <div class="category">
+                                        <h3>LANCEMENT DE WASCAL</h3>
+                                    </div> -->
+                                </figure>
+                                <div class="course-1-content pb-4">
+                                    <p class="desc mb-4">
+                                        LANCEMENT DE WASCAL-DE-COOP AU CENTRE DE COMPÉTENCES WASCAL AU BURKINA FASO Les principaux résultats du lancement du projet et de la visite sur le terrain soulignent l'importance de développer et de fournir des services dans...</p>
+                                    <p><a href="course-single.html" class="btn btn-info rounded-0 px-4">Voir les details de projet</a></p>
+                                </div>
+                            </div>
+
+                            <div class="course-1-item">
+                                <figure class="thumnail">
+                                    <a href="course-single.html"><img src="{% static 'images/projet_3.jpg' %}" alt="Image" class="img-fluid"></a>
+
+                                    <!-- <div class="category">
+                                        <h3>MODULE DE FORMATION</h3>
+                                    </div> -->
+                                </figure>
+                                <div class="course-1-content pb-4">
+
+                                    <p class="desc mb-4">
+                                        MODULE DE FORMATION SUR LA RÉDUCTION DES RISQUES DE CATASTROPHE EN AFRIQUE DE L'OUEST l'UNU-EHS a organisé un module de formation à Lomé, au Togo, où 10 étudiants du projet Wascal (Centre de services...</p>
+                                    <p><a href="course-single.html" class="btn btn-info rounded-0 px-4">Voir les details de projet</a></p>
+                                </div>
+                            </div>
+
+                            <div class="course-1-item">
+                                <figure class="thumnail">
+                                    <a href="course-single.html"><img src="{% static 'images/projet_2.jpeg' %}" alt="Image" class="img-fluid"></a>
+
+                                    <!-- <div class="category">
+                                        <h3>VISITE DU DR SCHÜTTE</h3>
+                                    </div> -->
+                                </figure>
+                                <div class="course-1-content pb-4">
+
+
+                                    <p class="desc mb-4"> VISITE DU DR SCHÜTTE, SECRÉTAIRE D'ÉTAT DE LA BMBF, A WASCAL CLIMATE CHANGE AND ECONOMICS GRP, DAKAR, SÉNÉGAL</p>
+                                    <p><a href="courses-single.html" class="btn btn-info rounded-0 px-4">Voir les details de projet</a></p>
+                                </div>
+                            </div>
+
+                            <div class="course-1-item">
+                                <figure class="thumnail">
+                                    <a href="course-single.html"><img src="{% static 'images/projet_5.jpg' %}" alt="Image" class="img-fluid"></a>
+                                    <!-- <div class="category">
+                                        <h3>WASCAL 1ER TRIMESTRE 2020</h3>
+                                    </div> -->
+                                </figure>
+                                <div class="course-1-content pb-4">
+                                    <p class="desc mb-4">
+                                        WASCAL 1ER TRIMESTRE 2020 <br/> Wascal cherche à devenir l’une des institutions de premier plan dans la fourniture de services climatiques et environnementaux dans et pour l'Afrique de l'Ouest.</p>
+                                    <p><a href="course-single.html" class="btn btn-info rounded-0 px-4">Voir les details de projet</a></p>
+                                </div>
+                            </div>
+
+                            <div class="course-1-item">
+                                <figure class="thumnail">
+                                    <a href="course-single.html"><img src="{% static 'images/course_5.jpg' %}" alt="Image" class="img-fluid"></a>
+
+                                    <!-- <div class="category">
+                                        <h3>FATOU GUEYE</h3>
+                                    </div> -->
+                                </figure>
+                                <div class="course-1-content pb-4">
+
+                                    <p class="desc mb-4">Fatou Gueye a récemment accédé au poste de directrice du programme de recherche doctorale WASCAL au Sénégal, après avoir occupé le poste de coordinatrice adjointe à partir de 2011</p>
+                                    <p><a href="course-single.html" class="btn btn-info rounded-0 px-4">Voir les details de projet</a></p>
+                                </div>
+                            </div>
+
+                            <div class="course-1-item">
+                                <figure class="thumnail">
+                                    <a href="course-single.html"><img src="{% static 'images/course_6.jpg' %}" alt="Image" class="img-fluid"></a>
+
+                                    <!-- <div class="category">
+                                        <h3>Mobile Application</h3>
+                                    </div> -->
+                                </figure>
+                                <div class="course-1-content pb-4">
+
+                                    <p class="desc mb-4">Fatou Gueye a récemment accédé au poste de directrice du programme de recherche doctorale WASCAL au Sénégal, après avoir occupé le poste de coordinatrice adjointe à partir de 2011</p>
+                                    <p><a href="course-single.html" class="btn btn-info rounded-0 px-4">Voir les details de projet</a></p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+        <div class="section-bg style-1" style="background-image: url('../../static/images/about_1.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h2 class="section-title-underline style-2">
+                            <span>A propos de nous</span>
+                        </h2>
+                    </div>
+                    <div class="col-lg-8">
+                        <p class="lead">Le changement climatique constitue en ce 21ème siècle un défi majeur pour la communauté rurale africaine, surtout celle de l’Afrique occidentale. La région est donc confrontée à la nécessité urgente de développer des mesures d’adaptation
+                            et d’atténuation efficaces.</p>
+                        <p>WASCAL (Centre Ouest-Africain de Service Scientifique sur le Changement Climatique et l’Utilisation Adaptée des Terres) est un programme de recherche, conçu pour répondre au défi du changement et de la variabilité croissante du
+                            climat et accroitre la résilience des systèmes humains et environnementaux. Pour ce faire, WASCAL se propose de renforcer, l’infrastructure et les capacités de recherche dans le domaine du changement climatique en Afrique de
+                            l’Ouest, en mettant ensemble l’expertise de dix pays de la région et celle d’institutions Allemandes. WASCAL est financé par le Ministère Fédéral Allemand de l’Education et de la Recherche (BMBF). Le projet est coordonné par
+                            le Centre de Recherche pour Développement (ZEF) de l’Université de Bonn et il est mis en œuvre grâce à la collaboration effective entre partenaires de l’Afrique de l’Ouest et de la République Fédérale d’Allemagne.</p>
+                        <p><a style="color:#009edb ;" href="#">Plus d'info</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- // 05 - Block -->
+        <div class="site-section">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-4">
+                        <h2 class="section-title-underline">
+                            <span>Temoignage</span>
+                        </h2>
+                    </div>
+                </div>
+
+
+                <div class="owl-slide owl-carousel">
+
+                    <div class="ftco-testimonial-1">
+                        <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                            <img src="{% static 'images/img.jpeg' %}" alt="Image" class="img-fluid mr-3">
+                            <div>
+                                <h3>Eduildo Lima</h3>
+                                <span>Programmeur</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p>&ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident
+                                aperiam!&rdquo;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="ftco-testimonial-1">
+                        <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                            <img src="{% static 'images/img.jpeg' %}" alt="Image" class="img-fluid mr-3">
+                            <div>
+                                <h3>Eduildo Lima</h3>
+                                <span>Programmeur</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident aperiam!</p>
+                        </div>
+                    </div>
+
+                    <div class="ftco-testimonial-1">
+                        <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                            <img src="{% static 'images/img.jpeg' %}" alt="Image" class="img-fluid mr-3">
+                            <div>
+                                <h3>Eduildo Lima</h3>
+                                <span>Programmeur</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p>&ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident
+                                aperiam!&rdquo;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="ftco-testimonial-1">
+                        <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                            <img src="{% static 'images/img.jpeg' %}" alt="Image" class="img-fluid mr-3">
+                            <div>
+                                <h3>Eduildo Lima</h3>
+                                <span>Programmeur</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident aperiam!</p>
+                        </div>
+                    </div>
+
+                    <div class="ftco-testimonial-1">
+                        <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                            <img src="{% static 'images/img.jpeg' %}" alt="Image" class="img-fluid mr-3">
+                            <div>
+                                <h3>Eduildo Lima</h3>
+                                <span>Programmeur</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p>&ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident
+                                aperiam!&rdquo;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="ftco-testimonial-1">
+                        <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                            <img src="{% static 'images/img.jpeg' %}" alt="Image" class="img-fluid mr-3">
+                            <div>
+                                <h3>Eduildo Lima</h3>
+                                <span>Programmeur</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident aperiam!</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="section-bg style-1" style="background-image: url('../../static/images/students.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+                        <span class="icon flaticon-mortarboard"></span>
+                        <h3>Notre Philosophie</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+                        <span class="icon flaticon-school-material"></span>
+                        <h3>Principe académique</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+                        <span class="icon flaticon-library"></span>
+                        <h3>Clé du succès</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="news-updates">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="section-heading">
+                            <h2 class="text-black">Informations &amp; Actualités</h2>
+                            <a href="#">Lire tous les informations</a>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="post-entry-big">
+                                    <a href="news-single.html" class="img-link"><img src="{% static 'images/sout.jpg' %}" alt="Image" class="img-fluid"></a>
+                                    <div class="post-content">
+                                        <div class="post-meta">
+                                            <a href="#">24 Novembre, 2020</a>
+                                            <span class="mx-1">/</span>
+                                            <a href="#">Admission</a>, <a href="#">Updates</a>
+                                        </div>
+                                        <h3 class="post-heading"><a href="news-single.html">Lorem ipsum dolor sit</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="post-entry-big horizontal d-flex mb-4">
+                                    <a href="news-single.html" class="img-link mr-4"><img src="{% static 'images/journe.jpg' %}" alt="Image" class="img-fluid"></a>
+                                    <div class="post-content">
+                                        <div class="post-meta">
+                                            <a href="#">24 Novembre, 2020</a>
+                                            <!-- <span class="mx-1">/</span> -->
+                                            <a href="#">journées portes ouvertes</a>
+                                        </div>
+                                        <h3 class="post-heading"><a href="news-single.html">Les journées portes ouvertes (WASCAL)</a></h3>
+                                    </div>
+                                </div>
+
+                                <div class="post-entry-big horizontal d-flex mb-4">
+                                    <a href="news-single.html" class="img-link mr-4"><img src="{% static 'images/etudiants.jpg' %}" alt="Image" class="img-fluid"></a>
+                                    <div class="post-content">
+                                        <div class="post-meta">
+                                            <a href="#">24 Novembre, 2020</a>
+                                            <span class="mx-1">/</span>
+                                            <a href="#">Admission</a>, <a href="#">Updates</a>
+                                        </div>
+                                        <h3 class="post-heading"><a href="news-single.html">Lorem ipsum dolor sit</a></h3>
+                                    </div>
+                                </div>
+
+                                <div class="post-entry-big horizontal d-flex mb-4">
+                                    <a href="news-single.html" class="img-link mr-4"><img src="{% static 'images/students_lg.jpg' %}" alt="Image" class="img-fluid"></a>
+                                    <div class="post-content">
+                                        <div class="post-meta">
+                                            <a href="#">24 Novembre, 2020</a>
+                                            <span class="mx-1">/</span>
+                                            <a href="#">Admission</a>, <a href="#">Updates</a>
+                                        </div>
+                                        <h3 class="post-heading"><a href="news-single.html">Lorem ipsum dolor sit</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="section-heading">
+                            <h2 class="text-black">Projets Videos</h2>
+                            <!-- <a href="#">View All Videos</a> -->
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=CAz1gB3kFl4" class="video-1 mb-4" data-fancybox="" data-ratio="2">
+                            <span class="play">
+                <span class="icon-play"></span>
+                            </span>
+                            <img src="{% static 'images/PICT5395.jpg' %}" alt="Image" class="img-fluid">
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=uTDarHINIaQ" class="video-1 mb-4" data-fancybox="" data-ratio="2">
+                            <span class="play">
+                  <span class="icon-play"></span>
+                            </span>
+                            <img src="{% static 'images/amadou-aly-ndiaye.jpg' %}" alt="Image" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-section ftco-subscribe-1" style="background-image: url('../../static/images/bg_1.jpg')">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h2>Abonnez-vous!</h2>
+                        <p>Subscribe below to receive updates on WASCAL</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <form action="" class="d-flex">
+                            <input type="text" class="rounded form-control mr-2 py-3" placeholder="Enter your email">
+                            <button class="btn btn-primary rounded py-3 px-4" type="submit">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+
+                        <p class="mb-4"><img src="{% static 'images/logo1.png' %}" alt="Image" class="img-fluid"></p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo minima qui dolor, iusto iure.</p>
+                        <p><a href="#">Learn More</a></p>
+                    </div>
+                    <div class="col-lg-3">
+                        <h3 class="footer-heading"><span>Nos cours</span></h3>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Science &amp; Engineering</a></li>
+                            <li><a href="#">Arts &amp; Humanities</a></li>
+                            <li><a href="#">Economics &amp; Finance</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3">
+                        <h3 class="footer-heading"><span>Contact</span></h3>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Support Community</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Share Your Story</a></li>
+                            <li><a href="#">Our Supporters</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="copyright">
+                            <p>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script> All rights reserved | Devloped by <a href="#" target="_blank">Eduildo Lima</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- .site-wrap -->
+
+
+    <!-- loader -->
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
+
+
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script src=" {% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <script src=" {% static 'js/jquery.mb.YTPlayer.min.js' %}"></script>
+
+
+
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

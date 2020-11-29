@@ -1,0 +1,166 @@
+<!-- Main Sidebar Container -->
+{% load static %}
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="/" class="brand-link">
+        <img src="{% static 'images/logo1.png' %}" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
+        <span class="brand-text font-weight-light">WASCAL</span>
+    </a>
+
+
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{% static 'static/assets/img/user2-160x160.jpg' %}" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="{% url 'core:index' %}" class="d-block">
+            {{ user.username }} - Logout
+          </a>
+            </div>
+        </div>
+
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Rechercher" aria-label="search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                {% if user.groups.all.0.name == 'admin' %}
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-archive"></i>
+                        <p>
+                            Candidats
+                            <i class="fas fa-angle-left right"></i>
+                            <span class="badge badge-danger right">{{all_candidats}}</span>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'core:candidats' %}" class="nav-link">
+                                <i class="far fa-user nav-icon"></i>
+                                <p>Pré inscription
+
+                                    <span class="badge badge-danger right">{{all_candidats}}</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'core:accepted_candidat' %}" class="nav-link">
+                                <i class="far fa-check-circle nav-icon"></i>
+                                <p>Candidats acceptés</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'core:candidats_rejecter' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Candidats Rejecté</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <!-- Fin sidebar -ETUDIANTS -->
+
+
+                <!-- Sidebar Enseignant -->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-archive"></i>
+                        <p>
+                            Enseignant
+                            <i class="fas fa-angle-left right"></i>
+                            <!-- <span class="badge badge-danger right">12</span> -->
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'core:enseignants' %}" class="nav-link">
+                                <i class="far fa-user nav-icon"></i>
+                                <p>Enseignants Disponible
+
+                                    <!-- <span class="badge badge-danger right">03</span> -->
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-check-circle nav-icon"></i>
+                                <p>Enseignants en congé</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Enseignants non disponibles</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Fin Sidebar Enseignant-->
+
+                <li class="nav-header">ADMINISTRATION</li>
+                <li class="nav-item">
+                    <a href="{% url 'core:new_subscribers' %}" class="nav-link">
+                        <i class="fa fa-graduation-cap nav-icon"></i>
+                        <p>
+                            Etudiants
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{% url 'core:all_groups' %}" class="nav-link">
+                        <i class="fa fa-object-group nav-icon"></i>
+                        <p>
+                            Groups
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'core:get_filieres' %}" class="nav-link">
+                        <i class="fa fa-folder nav-icon"></i>
+                        <p>
+                            Filieres
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa fa-users nav-icon"></i>
+                        <p>
+                            Utilisateurs
+                        </p>
+                    </a>
+                </li>
+
+                <!-- /.sidebar-ETUDIANTS -->
+
+                <li class="nav-header">SECRETAIRE</li>
+
+            </ul>
+            {% else %}
+            <!-- <p>Je suis pas admin</p> -->
+            {% endif %}
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
