@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import login as auth_login, authenticate
 
-from .forms import GroupeForms, EnseignantForms, SignUpForm
+from .forms import GroupeForms, EnseignantForms, SignUpForm, ModuleForms
 
 from core.models import Etudiant, Enseignant, Secretaire, Filiere, Groupe
 
@@ -167,9 +167,10 @@ def new_group(request, filiere_id):
 def groupe_info(request, groupe_id): 
     groupe = Groupe.objects.get(id=groupe_id)
     etudiants = Etudiant.objects.all().filter(status='accepted').filter(filiere=groupe.filiere).filter(groupe=groupe_id)
-    all_students = Etudiant.objects.all().filter(groupe=groupe_id).count()
+    all_students = Etudiant.objects.all().filter(status='accepted').filter(filiere=groupe.filiere).filter(groupe=groupe_id).count()
     context = {'groupe': groupe, 'etudiants': etudiants, 'all_students': all_students}
     return render(request, 'admins/groupe_info.html', context)
+
 
 
 #acceptee = Etudiant.objects.all().filter(groupe=groupe_id)
@@ -183,9 +184,10 @@ def add_student_in_group(request, groupe_id):
 
 
 
-def add_in_group(request, groupe_id, etudiant_id ):
+def add_in_group(request, etudiant_id, groupe_id ):
     etudiant = Etudiant.objects.get(id=etudiant_id)
     groupe = Groupe.objects.get(id=groupe_id)
+    print(groupe)
     etudiant.groupe = groupe
     etudiant.save()
     return redirect('core:add_student_in_group', groupe_id = groupe.id)
@@ -274,5 +276,32 @@ def prof_update(request, prof_id):
     context = {'prof': prof, 'form': form}
     return render(request, 'admins/prof_update.html', context)
 # ============= FIN GESTION DES ENSEIGNANTS =====================
+
+
+# =============== GESTION MODULES =======================
+
+
+
+
+def add_module(request, groupe_id):
+    groupe = Groupe.objects.get(id=groupe_id)
+    if request.method != 'POST': 
+        form = ModuleForms()
+        print(form)
+    else:  
+        form = ModuleForms(data = request.POST)
+        if form.is_valid():
+            module = form.save(commit=False)
+            module.groupe = groupe
+            module.save()
+            return redirect('core:groupe_info', groupe_id = groupe.id )
+        else:
+            form = GroupeForm()
+    context = {'form': form, 'groupe': groupe}
+    return render(request, 'admins/new_module.html', context)
+
+# ============= FIN GESTION MODULES =====================
+
+
 
 # FIM PLATEFORME VIEWS

@@ -159,6 +159,25 @@ class Enseignant(Personne):
     def __str__(self):
         return self.nom    
 
+
+
+
+class Module(models.Model):
+    
+    nom_module = models.CharField(max_length=30, verbose_name="Nom Module")
+    volume_horaire = models.IntegerField(verbose_name="Volume horaire")
+    coefficient = models.IntegerField(verbose_name="Coefficient")
+    enseignant = models.OneToOneField(Enseignant, on_delete=models.CASCADE)
+    groupe = models.ForeignKey(Groupe, on_delete=models.CASCADE)
+    
+    class Meta:
+        verbose_name_plural = "Modules"
+        
+    def __str__(self):
+        return self.nom_module
+
+
+
 class Responsable(Personne):
     """[summary]
 
@@ -201,17 +220,7 @@ class Administrateur(Personne):
         return self.nom 
     
 
-class Module(models.Model):
-    
-    nom_module = models.CharField(max_length=30, verbose_name="Nom Module")
-    volume_horaire = models.IntegerField(verbose_name="Volume horaire")
-    coefficient = models.IntegerField(verbose_name="Coefficient")
-    
-    class Meta:
-        verbose_name_plural = "Modules"
-        
-    def __str__(self):
-        return self.nom_module
+
     
     
     

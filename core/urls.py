@@ -34,7 +34,7 @@ urlpatterns = [
     path('groupe_info/<int:groupe_id>/', views.groupe_info, name='groupe_info'),
     path('add_student_in_group/<int:groupe_id>/', views.add_student_in_group, name='add_student_in_group'),
     path('new_group/<int:filiere_id>/', views.new_group, name='new_group'),
-    path('add_in_group/<int:groupe_id>/<int:etudiant_id>', views.add_in_group, name='add_in_group'),
+    path('add_in_group/<int:etudiant_id>/<int:groupe_id>', views.add_in_group, name='add_in_group'),
     
    #Routes for teacher 
     path('enseignants/', views.enseignants, name='enseignants'),
@@ -44,6 +44,8 @@ urlpatterns = [
     path('prof_update/<int:prof_id>/', views.prof_update, name='prof_update'),
     
     
+    # Routes Gestion Module
+    path('add_module/<int:groupe_id>/', views.add_module, name='add_module'),
     
     
     

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Groupe, Enseignant
+from .models import Groupe, Enseignant, Module
 
 
 
@@ -56,4 +56,8 @@ class EnseignantForms(forms.ModelForm):
         fields = ['nom', 'prenom', 'date_naissance', 'lieu_naissance', 'nationalite', 'telephone', 'email', 'adresse', 'etat_civil' , 'specialite']
 
 
-    
+class ModuleForms():
+    model = Module
+    fields = ['nom_module', 'volume_horaire', 'coefficient', 'enseignant']
+
+  

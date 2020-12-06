@@ -1,0 +1,125 @@
+{% extends "admins/layouts/base.html" %} {% load static %} {% block title %} Dashboard {% endblock %}
+
+<!-- Element injected in the BODY element -->
+{% block body_class %} sidebar-mini {% endblock body_class %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+
+<!-- Google Font: Source Sans Pro -->
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="{% static '/static/assets/plugins/fontawesome-free/css/all.min.css' %}">
+<!-- DataTables -->
+<link rel="stylesheet" href="{% static '/static/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static '/static/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css' %}">
+<!-- Theme style -->
+<link rel="stylesheet" href="{% static '/static/assets/css/adminlte.min.css' %}"> {% endblock stylesheets %} {% block content %}
+
+
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1></h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{% url 'core:admins' %}">Home</a></li>
+                        <li class="breadcrumb-item active">Nouveau groupe</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    {% load widget_tweaks %}
+                    <!-- general form elements -->
+                    <div style="width: 60%; margin: auto;" class="card card-dark elevation-4 mb-4">
+                        <div class="card-header">
+                            <h3 class="card-title">Ajouter les informations du Module</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form class="mb-4" method="POST" action="">
+                            {% csrf_token %}
+                            <div class="card-body">
+                                <div class="form-group">
+
+                                    <label>Nom module</label> {% render_field form.nom_module class="form-control mb-2" id="inlineFormInput" %}
+                                </div>
+                                <div class="form-group">
+                                    <label>Volume horaire</label> {% render_field form.volume_horaire class="form-control mb-2" id="inlineFormInput" %}
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Coeficient</label> {% render_field form.coefficient class="form-control mb-2" id="inlineFormInput" %}
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Enseignant</label> {% render_field form.enseignant class="form-control mb-2" id="inlineFormInput" %}
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <a href="#" class="btn btn-danger">Cancel</a>
+                                        <input type="submit" value="Ajouter" class="btn btn-success float-right">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.general form elements -->
+
+
+                        </form>
+                    </div>
+                </div>
+                <!-- /.card -->
+
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+{% endblock content %}
+
+
+
+
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<!-- jQuery -->
+
+<script src="{% static '/static/assets/plugins/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static '/static/assets/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- DataTables -->
+<script src="{% static '/static/assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static '/static/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static '/static/assets/plugins/datatables-responsive/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static '/static/assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static '/static/assets/js/adminlte.min.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static '/static/assets/js/demo.js' %}"></script>
+
+{% endblock javascripts %}
